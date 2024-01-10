@@ -11,12 +11,12 @@ const config = {
   title: 'College Program',
   description:
     'Replace with information about your application. Ex. You can search by address to sort the list below by distance. You can also filter the list by language support options, which days a location is open, and whether they have devices to use to complete the survey by phone or online.',
-  sideBarInfo: ['Location_Name', 'Address', 'Phone'],
+  sideBarInfo: ['School', 'IPEDS_ID'],
   popupInfo: ['Location_Name'],
   filters: [
     {
       type: 'dropdown',
-      title: 'Languages supported: ',
+      title: 'Programs (BA+): ',
       columnHeader: 'Programs',
       listItems: [
         Agricultural/Animal/Plant/Veterinary Science and Related Fields, Other;Animal Sciences, Other;Food Science;City/Urban, Community, and Regional Planning;Biology/Biological Sciences, General;Accounting;Business Administration and Management, General;Entrepreneurship/Entrepreneurial Studies;Finance, General;Logistics, Materials, and Supply Chain Management;Marketing/Marketing Management, General;Communication and Media Studies, Other;Radio and Television Broadcasting Technology/Technician;Computer and Information Sciences, General;Early Childhood Education and Teaching;Education/Teaching of Individuals with Speech or Language Impairments;Educational Leadership and Administration, General;Elementary Education and Teaching;Physical Education Teaching and Coaching;Secondary Education and Teaching;Special Education and Teaching, General;Civil Engineering, General;Electrical and Electronics Engineering;Engineering, Other;Mechanical Engineering;Construction Engineering Technology/Technician;English Language and Literature, General;Family and Consumer Sciences/Human Sciences, General;SpeechLanguage Pathology/Pathologist;Criminal Justice/Law Enforcement Administration;General Studies;Mathematics, General;Forestry, Other;Exercise Science and Kinesiology;Sport and Fitness Administration/Management;Chemistry, General;Physics, General;Physics, Other;Counseling Psychology;Psychology, General;Social Work;Political Science and Government, General;Sociology, General;Art/Art Studies, General;Music, General;AfricanAmerican/Black Studies;Bioinformatics;Biomedical Sciences, General;Biostatistics;Biotechnology;Cell/Cellular Biology and Histology;Epidemiology;Genetics, General;Human/Medical Genetics;Immunology;Microbiology, General;Molecular Biochemistry;Molecular Physiology;Neurobiology and Anatomy;Neuroscience;Oncology and Cancer Biology;Vision Science/Physiological Optics;Business Administration, Management and Operations, Other;Business/Managerial Economics;Human Resources Management/Personnel Administration, General;Management Information Systems, General;Speech Communication and Rhetoric;Computer and Information Systems Security/Auditing/Information Assurance;Information Science/Studies;
@@ -68,27 +68,6 @@ const config = {
         Airframe Mechanics and Aircraft Maintenance Technology/Technician;Automobile/Automotive Mechanics Technology/Technician;Nuclear/Nuclear Power Technology/Technician;Education/Teaching of Individuals with Traumatic Brain Injuries;Funeral Direction/Service;Computer/Computer Systems Technology/Technician;Paper Science and Engineering;Communication Arts and Literature Teacher Education;Digital Humanities;Scandinavian Studies;Retailing and Retail Operations;Family and Consumer Economics and Related Services, Other;Germanic Languages, Literatures, and Linguistics, Other;Cultural Studies and Comparative Literature;Norwegian Language and Literature;Military Technologies and Applied Sciences, Other;Magnetic Resonance Imaging (MRI) Technology/Technician;Developmental Services Worker;Quality Control and Safety Technologies/Technicians, Other;Ceramic Sciences and Engineering;Photographic and Film/Video Technology/Technician;Advanced General Dentistry;Medical Family Therapy/Therapist;Aeronautical/Aerospace Engineering Technology/Technician;Economics and Computer Science;Materials Sciences, Other;Audiovisual Communications Technologies/Technicians, Other;Science/Health/Environmental Journalism;Diesel Mechanics Technology/Technician;Customer Service Management;Traffic, Customs, and Transportation Clerk/Technician;Computer Support Specialist;Holocaust and Related Studies;Practical Nursing, Vocational Nursing and Nursing Assistants, Other;Criminal Law and Procedure;Neuropharmacology;Industrial and Physical Pharmacy and Cosmetic Sciences;Building/Construction Site Management/Manager;Clinical/Medical Laboratory Assistant;Psychopharmacology;Gay/Lesbian Studies;Textile Science;Comparative Psychology;Special Products Marketing Operations;Apparel and Textile Manufacture;Real Estate and Land Development Law;English as a Second Language;Irish Studies;Hebrew Language and Literature;Hotel, Motel, and Restaurant Management;Public Finance;Baking and Pastry Arts/Baker/Pastry Chef;Forest Resources Production and Management;Prepress/Desktop Publishing and Digital Imaging Design;
         Furniture Design and Manufacturing;Online Educator/Online Teaching;Economics and Foreign Language/Literature;History and Language/Literature;Dance Therapy/Therapist;Veterinary Office Management/Administration;Mechatronics, Robotics, and Automation Engineering Technology/Technician;Restaurant, Culinary, and Catering Management/Manager;Linguistics and Computer Science;Metal Arts;Instrumentation Technology/Technician;Nuclear Engineering Technology/Technician;Military Technology and Applied Sciences Management;Agricultural Production Operations, Other;Textile Sciences and Engineering;Graphic Communications, Other;Assistive/Augmentative Technology and Rehabilitation Engineering;Paleontology;Patent Law;College/Postsecondary/University Teaching;Catholic Studies;Cardiovascular Science;Lactation Consultant;Theoretical Chemistry;Indian/Native American Education;Animal Nutrition;Energy Systems Installation and Repair Technology/Technician;Applied Engineering Technologies/Technicians;Forest Engineering;Ophthalmic and Optometric Support Services and Allied Professions, Other;Korean Studies;Trauma Counseling;Logic;Perioperative/Operating Room and Surgical Nurse/Nursing;Juvenile Corrections;Medical Office Computer Specialist/Assistant;Religious Institution Administration and Management;Slavic Studies;Contemplative Studies/Inquiry;Housing and Human Environments, Other;Respiratory Therapy Technician/Assistant;Executive/Career Coaching;Consumer Services and Advocacy;Community/Environmental/SociallyEngaged Art;Soil Chemistry and Physics;Astronautical Engineering;Early Childhood Program Administration;
         Merchandising and Buying Operations;Histologic Technician;Applied Demography;Transportation and Infrastructure Planning/Studies;Apparel and Textiles, Other;Chaplain/Chaplaincy Studies;NonProfessional Legal Studies, Other;Atmospheric Chemistry and Climatology;Atmospheric Physics and Dynamics;Aerospace Ground Equipment Technology;Sales and Marketing Operations/Marketing and Distribution   Teacher Education;Direct Entry Midwifery;Herbalism/Herbalist;Vehicle Maintenance and Repair Technologies/Technicians, Other;Plant Nursery Operations and Management;Genetics, Other;Danish Language and Literature;Swedish Language and Literature;Uralic Languages, Literatures, and Linguistics;Chemical Technology/Technician;Printing Press Operator;Dental Materials;Driver and Safety Teacher Education;African Languages, Literatures, and Linguistics;Rural Sociology;Data Visualization;Protective Services Operations;Aircraft Powerplant Technology/Technician;Church Planting;Human Resources Law;Dietitian Assistant;Legal Support Services, Other
-      ],
-    },
-    {
-      type: 'checkbox',
-      title: 'Devices available: ',
-      columnHeader: 'Devices_available', // Case sensitive - must match spreadsheet entry
-      listItems: ['Computer', 'Wi-Fi', 'Adaptive Laptops'], // Case sensitive - must match spreadsheet entry; This will take up to six inputs but is best used with a maximum of three;
-    },
-    {
-      type: 'dropdown',
-      title: 'Clients: ',
-      columnHeader: 'Clients',
-      listItems: [
-        'Adults',
-        'Disabled',
-        'Homeless',
-        'Immigrants/Refugees',
-        'Low Income',
-        'Seniors',
-        'Youth: Pre-teen',
-        'Youth: Teen',
       ],
     },
   ],
