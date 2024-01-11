@@ -17,7 +17,7 @@ const config = {
     {
       type: 'dropdown',
       title: 'Languages supported: ',
-      columnHeader: 'Programs_list',
+      columnHeader: 'Programslist',
       listItems: [
        "Civil Drafting and Civil Engineering CAD/CADD”, 
  "Civil Engineering (General)”, 
