@@ -57,7 +57,7 @@ const config = {
     },
     {
       type: 'dropdown',
-      title: 'Clients: ',
+      title: 'Programs: ',
       columnHeader: 'Programslist',
       listItems: [
        'Biochemistry',
