@@ -5,14 +5,13 @@ const config = {
   style: 'mapbox://styles/mapbox/light-v10',
   accessToken:
     'pk.eyJ1IjoibWFwYm94LWNvbW11bml0eSIsImEiOiJja2tkN21jcjAwMG51MnBxdHAxemdueGpzIn0.e0IzLkytGq4pcGGieP8KNA',
-  CSV: '../MAPBOX.csv',
+  CSV: './MAPBOX.csv',
   center: [-120.234, 47.398],
   zoom: 6,
   title: 'College Program',
   description:
   'Users can filter by program',
   sideBarInfo: ['School', 'IPEDS_ID'],
-  popupInfo: ['Location_Name'],
   filters: [
     {
       type: 'dropdown',
