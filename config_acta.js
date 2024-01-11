@@ -1311,14 +1311,6 @@ const config = {
  "Zoology/Animal Biology”, 
  "Zoology/Animal Biology (Other)”, 
  "Zymology/Fermentation Science”, 
-
-
-
-
-
-
-
-        
       ],
     },
   ],
