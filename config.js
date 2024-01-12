@@ -11,8 +11,8 @@ const config = {
   title: 'Replace with your title',
   description:
     ' REPLACE.',
-  sideBarInfo: ['Location_Name', 'Address', 'Phone'],
-  popupInfo: ['Location_Name'],
+  sideBarInfo: ['School'],
+  popupInfo: ['School'],
   filters: [
     {
       type: 'dropdown',
