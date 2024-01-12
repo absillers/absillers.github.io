@@ -18,7 +18,7 @@ const config = {
       type: 'dropdown',
       title: 'Programs ',
       columnHeader: 'Programslist',
-      listItems: [Accounting”,
+      listItems: ["Accounting”,
 “Accounting and Finance”,
 “Acoustics”, 
 “Acting”, 
