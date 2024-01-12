@@ -6,7 +6,7 @@ const config = {
   style:  'mapbox://styles/mapbox/streets-v11',,
   accessToken:
     'pk.eyJ1IjoiYW5uYXNpbGxlcnMiLCJhIjoiY2xweDZ2a2RrMGk1ZjJqbnJnc25pZGhyYSJ9.0kwnSzA5FG6Cmse2aBC4AQ',
-  CSV: './Sample_Data.csv',
+  CSV: './sample_data_og.csv',
   center: [-120.234, 47.398],
   zoom: 6,
   title: 'Replace with your title',
