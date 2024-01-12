@@ -11,8 +11,8 @@ const config = {
   title: 'TO REPLACE ',
   description:
     'TO REPLACE',
-  sideBarInfo: ['School'],
-  popupInfo: ['School'],
+  sideBarInfo: ['School', 'CITY', 'STATE'],
+  popupInfo: ['School', 'CITY', 'STATE'],
   filters: [
     {
       type: 'dropdown',
