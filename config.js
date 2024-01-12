@@ -19,6 +19,10 @@ const config = {
       title: 'Programs Offered: ',
       columnHeader: 'Programslist',
       listItems: [
+        'Accounting', 
+        'Accounting and Finance',
+        'Acoustics', 
+        'Acting', 
         'Amharic',
         'ASL',
         'Cambodian',
