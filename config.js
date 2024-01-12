@@ -17,7 +17,7 @@ const config = {
     {
       type: 'dropdown',
       title: 'Programs Offered: ',
-      columnHeader: 'Languages',
+      columnHeader: 'Programslist',
       listItems: [
         'Amharic',
         'ASL',
