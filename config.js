@@ -10,7 +10,7 @@ const config = {
   zoom: 6,
   title: 'Program Map',
   description:
-    'TO REPLACE.',
+    'took out some programs.',
   sideBarInfo: ['School'],
   popupInfo: ['School'],
   filters: [
