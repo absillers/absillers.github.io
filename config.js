@@ -12,7 +12,7 @@ const config = {
   description:
     'TO REPLACE',
   sideBarInfo: ['School', 'CITY', 'STATE'],
-  popupInfo: ['School', 'CITY', 'STATE'],
+  popupInfo: ['School'],
   filters: [
     {
       type: 'dropdown',
