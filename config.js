@@ -11,8 +11,8 @@ const config = {
   title: 'Program Map',
   description:
     'TO REPLATE.',
-  sideBarInfo: ['Location_Name', 'Address', 'Phone'],
-  popupInfo: ['Location_Name'],
+  sideBarInfo: ['School'],
+  popupInfo: ['School'],
   filters: [
     {
       type: 'dropdown',
