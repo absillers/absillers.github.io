@@ -16,7 +16,7 @@ const config = {
   filters: [
     {
       type: 'dropdown',
-      title: 'Languages supported: ',
+      title: 'Programs Offered: ',
       columnHeader: 'Languages',
       listItems: [
         'Amharic',
