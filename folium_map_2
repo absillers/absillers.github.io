@@ -1,9 +1,5 @@
 import folium
-import csv
-import pandas as pd
-from folium.plugins import MarkerCluster
-from folium.plugins import FastMarkerCluster
-import numpy as np
+
 
 map = folium.Map(location =[38.900115611746834, -77.02168612022783],  
     tiles = None, 
