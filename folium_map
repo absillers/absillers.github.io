@@ -80,7 +80,7 @@ folium.TileLayer('CartoDB positron').add_to(map)
 
 folium.LayerControl().add_to(map)
 
-#map_filename = "folium_map.html"
-#map.save(map_filename) 
+map_filename = "folium_map.html"
+map.save(map_filename) 
 
-map.save("docs/index.html")
+#map.save("docs/index.html")
