@@ -1,0 +1,84 @@
+import folium
+import csv
+import pandas as pd
+from folium.plugins import MarkerCluster
+from folium.plugins import FastMarkerCluster
+import numpy as np
+
+map = folium.Map(location =[38.900115611746834, -77.02168612022783],  
+    tiles = None, 
+    zoom_start=13)
+
+#filename = "C:/Users/asillers/OneDrive - The American Council of Trustees Alumni/urban_turf.csv"
+filename = [urban_turf.csv](https://github.com/absillers/absillers.github.io)
+
+df_addresses = pd.read_csv(filename)
+
+df_addresses = df_addresses.rename(columns={'No. of units:': 'No_units'})
+df_addresses = df_addresses.rename(columns={'Website:': 'Website'})
+df_addresses['Website_url'] = df_addresses.apply(lambda row: f"<a href={row['Website']} style='color: black'; target='_blank'>{row['Address']}</a>", axis=1)
+
+
+under_constuction = ['Under Construction, Not Yet Selling', 'Under Construction, Not Yet Leasing', 'Under Construction, Selling', 'Under Construction, Leasing Up']
+planned = ['Planned']
+delivered = ['Delivered, Selling',  'Delivered, Leasing Up', 'Sold Out', 'Leased Up']
+
+def status_merge_color(row):
+    if row['Status:'] in under_constuction:
+        return 'darkblue'
+    elif row['Status:'] in planned:
+        return 'darkred'
+    else:
+        return 'darkgreen'
+    
+def status_merge_value(row):
+    if row['Status:'] in under_constuction:
+        return 'Under Construction'
+    elif row['Status:'] in planned:
+        return 'Planned'
+    else:
+        return 'Delivered'
+
+df_addresses['Marker_color'] = df_addresses.apply(status_merge_color, axis=1)
+df_addresses['Status_comb'] = df_addresses.apply(status_merge_value, axis=1)
+
+df_addresses = df_addresses.dropna(subset=['No_units']) 
+df_addresses = df_addresses.dropna(subset=['Latitude']) 
+df_addresses = df_addresses.dropna(subset=['Longitude']) 
+
+
+for grp_name, df_grp in df_addresses.groupby('Status_comb'):
+    feature_group = folium.FeatureGroup(grp_name)
+    for row in df_grp.itertuples():
+        
+        popup_content = f"""
+        <!DOCTYPE html>
+        <html>
+        <body>
+            <h4 style="font-family: Arial, Helvetica, sans-serif; font-size: 12px;">{row.Website_url}</h4>
+            <h4 style="font-family: Arial, Helvetica, sans-serif; font-size: 12px;">{row.Size}</h4>
+        </body>
+        </html>
+        """
+        popup_content = popup_content.replace(". ", ". <br>")
+        iframe = folium.IFrame(popup_content,
+                       width=180,
+                       height=70)
+        marker = folium.Circle(
+            location=[row.Latitude, row.Longitude], 
+            
+            popup = folium.Popup(iframe, max_width=100),
+            
+            fill_color=row.Marker_color,
+            radius=row.No_units*.35,
+            weight=.05,
+            fill_opacity=.6).add_to(feature_group)
+    feature_group.add_to(map)
+    
+folium.TileLayer('OpenStreetMap').add_to(map)
+folium.TileLayer('CartoDB positron').add_to(map)
+
+folium.LayerControl().add_to(map)
+
+map_filename = "folium_map.html"
+map.save(map_filename) 
