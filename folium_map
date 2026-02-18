@@ -10,7 +10,7 @@ map = folium.Map(location =[38.900115611746834, -77.02168612022783],
     zoom_start=13)
 
 #filename = "C:/Users/asillers/OneDrive - The American Council of Trustees Alumni/urban_turf.csv"
-filename = [urban_turf.csv](https://github.com/absillers/absillers.github.io)
+filename = "./urban_turf.csv"
 
 df_addresses = pd.read_csv(filename)
 
