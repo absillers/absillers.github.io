@@ -1,6 +1,5 @@
 import folium
 
-
 map = folium.Map(location =[38.900115611746834, -77.02168612022783],  
     tiles = None, 
     zoom_start=13)
