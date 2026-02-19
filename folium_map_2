@@ -5,7 +5,7 @@ map = folium.Map(location =[38.900115611746834, -77.02168612022783],
     tiles = None, 
     zoom_start=13)
 
-#map.save(map_filename) 
-#map_filename = "folium_map.html"
+map.save(map_filename) 
+map_filename = "folium_map.html"
 
 #map.save("index.html")
