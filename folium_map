@@ -4,14 +4,14 @@ import pandas as pd
 from folium.plugins import MarkerCluster
 from folium.plugins import FastMarkerCluster
 import numpy as np
+from geopy.geocoders import Nominatim
+import time
 
 map = folium.Map(location =[38.900115611746834, -77.02168612022783],  
     tiles = None, 
     zoom_start=13)
 
-#filename = "C:/Users/asillers/OneDrive - The American Council of Trustees Alumni/urban_turf.csv"
-filename = ".\urban_turf.csv"
-
+filename = "C:/Users/asillers/OneDrive - The American Council of Trustees Alumni/urban_turf.csv"
 df_addresses = pd.read_csv(filename)
 
 df_addresses = df_addresses.rename(columns={'No. of units:': 'No_units'})
@@ -75,12 +75,38 @@ for grp_name, df_grp in df_addresses.groupby('Status_comb'):
             fill_opacity=.6).add_to(feature_group)
     feature_group.add_to(map)
     
+#map_filename = "folium_map.html"
+#map.save(map_filename) 
+
+for grp_name, df_grp in wmata_addresses_long.groupby('weekend_weekday'):
+    feature_group_wmata = folium.FeatureGroup(grp_name)
+    for row in df_grp.itertuples():
+        
+        popup_content = f"""
+        <!DOCTYPE html>
+        <html>
+        <body>
+            <h4 style="font-family: Arial, Helvetica, sans-serif; font-size: 12px;">{row.NAME}</h4>
+        </body>
+        </html>
+        """
+        popup_content = popup_content.replace(". ", ". <br>")
+        iframe = folium.IFrame(popup_content,
+                       width=180,
+                       height=70)
+        marker = folium.Circle(
+            location=[row.Latitude, row.Longitude], 
+            
+            popup = folium.Popup(iframe, max_width=100),
+            
+            fill_color='blue',
+            radius=row.ridership*.1,
+            weight=.05,
+            fill_opacity=.1).add_to(feature_group_wmata)
+    feature_group_wmata.add_to(map) 
+
+    
 folium.TileLayer('OpenStreetMap').add_to(map)
 folium.TileLayer('CartoDB positron').add_to(map)
 
 folium.LayerControl().add_to(map)
-
-#map_filename = "folium_map.html"
-#map.save(map_filename) 
-
-#map.save("docs/index.html")
