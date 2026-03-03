@@ -4,14 +4,16 @@ import pandas as pd
 from folium.plugins import MarkerCluster
 from folium.plugins import FastMarkerCluster
 import numpy as np
+from geopy.geocoders import Nominatim
+import time
+from folium.plugins import GroupedLayerControl
+
 
 map = folium.Map(location =[38.900115611746834, -77.02168612022783],  
     tiles = None, 
     zoom_start=13)
 
-#filename = "C:/Users/asillers/OneDrive - The American Council of Trustees Alumni/urban_turf.csv"
-filename = ".\urban_turf.csv"
-
+filename = "C:/Users/asillers/OneDrive - The American Council of Trustees Alumni/urban_turf.csv"
 df_addresses = pd.read_csv(filename)
 
 df_addresses = df_addresses.rename(columns={'No. of units:': 'No_units'})
@@ -75,12 +77,71 @@ for grp_name, df_grp in df_addresses.groupby('Status_comb'):
             fill_opacity=.6).add_to(feature_group)
     feature_group.add_to(map)
     
+#map_filename = "folium_map.html"
+#map.save(map_filename)
+wmata_weekends = folium.FeatureGroup(name='Weekend Ridership')
+wmata_weekdays = folium.FeatureGroup(name='Weekday Ridership')
+
+for row in wmata_addresses.itertuples():
+    popup_content = f"""
+        <!DOCTYPE html>
+        <html>
+        <body>
+            <h4 style="font-family: Arial, Helvetica, sans-serif; font-size: 12px;">{row.NAME}</h4>
+            <h4 style="font-family: Arial, Helvetica, sans-serif; font-size: 12px;">{row.weekend_mean_rounded}</h4>
+        </body>
+        </html>
+        """
+    popup_content = popup_content.replace(". ", ". <br>")
+    iframe = folium.IFrame(popup_content,
+                    width=180,
+                    height=70)
+    marker = folium.Circle(
+        location=[row.Latitude, row.Longitude], 
+        popup = folium.Popup(iframe, max_width=100),
+
+        fill_color=row.color_line,
+        radius=row.weekend_mean*.15,
+        weight=.05,
+        fill_opacity=.6).add_to(wmata_weekends)
+    wmata_weekends.add_to(map) 
+    
+    
+for row in wmata_addresses.itertuples():
+    popup_content = f"""
+        <!DOCTYPE html>
+        <html>
+        <body>
+            <h4 style="font-family: Arial, Helvetica, sans-serif; font-size: 12px;">{row.NAME}</h4>
+            <h4 style="font-family: Arial, Helvetica, sans-serif; font-size: 12px;">{row.weekday_mean_rounded}</h4>
+        </body>
+        </html>
+        """
+
+    popup_content = popup_content.replace(". ", ". <br>")
+  
+    iframe = folium.IFrame(popup_content,
+                    width=180,
+                    height=70)
+    marker = folium.Circle(
+        location=[row.Latitude, row.Longitude], 
+        popup = folium.Popup(iframe, max_width=100),
+        fill_color=row.color_line,
+        radius=row.weekday_mean*.15,
+        weight=.05,
+        fill_opacity=.6).add_to(wmata_weekdays)
+    wmata_weekdays.add_to(map) 
+    
+
 folium.TileLayer('OpenStreetMap').add_to(map)
 folium.TileLayer('CartoDB positron').add_to(map)
 
-folium.LayerControl().add_to(map)
+#how do I add both weekend and weekday 
 
-#map_filename = "folium_map.html"
-#map.save(map_filename) 
 
-#map.save("docs/index.html")
+GroupedLayerControl(
+    groups={'WMATA': [wmata_weekends, wmata_weekdays]},
+    collapsed=False,
+).add_to(map)
+
+folium.LayerControl(collapsed=False).add_to(map)
