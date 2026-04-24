@@ -1,3 +1,2 @@
 # absillers.github.io
-test
-why here
+Welcome to my data visualiztion portfolio :)
