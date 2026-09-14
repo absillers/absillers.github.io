@@ -1,1 +1,1 @@
-Folium maps with Urban Turf (Brightline MLS) data.
+<meta http-equiv="Refresh" content="2; url=public/index.html">
